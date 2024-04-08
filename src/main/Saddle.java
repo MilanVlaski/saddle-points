@@ -1,22 +1,10 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.function.BiFunction;
 
 public class Saddle
 {
-
-	public static int max(int[] array)
-	{
-
-		int max = array[0];
-
-		for (int number : array)
-		{
-			max = Math.max(max, number);
-		}
-
-		return max;
-	}
 
 	public static int[] indexesOf(int value, int[] array)
 	{
@@ -40,21 +28,27 @@ public class Saddle
 		return result;
 	}
 
-	public static int min(int[] array) {
-		
-		int min = array[0];
+	public static int max(int[] array)
+	{
+		return valueFromCondition(array, Math::max);
+	}
+
+	public static int min(int[] array)
+	{
+		return valueFromCondition(array, Math::min);
+	}
+
+	public static int valueFromCondition(int[] array,
+	                                     BiFunction<Integer, Integer, Integer> func)
+	{
+		int value = array[0];
 
 		for (int number : array)
 		{
-			min = Math.min(min, number);
+			value = func.apply(value, number);
 		}
 
-		return min;
-	}
-	
-	public static int valueFromCondition(int[] array)
-	{
-		return 0;
+		return value;
 	}
 
 }
