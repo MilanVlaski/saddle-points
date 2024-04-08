@@ -40,4 +40,21 @@ public class Saddle
 		return result;
 	}
 
+	public static int min(int[] array) {
+		
+		int min = array[0];
+
+		for (int number : array)
+		{
+			min = Math.min(min, number);
+		}
+
+		return min;
+	}
+	
+	public static int valueFromCondition(int[] array)
+	{
+		return 0;
+	}
+
 }

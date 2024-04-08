@@ -37,4 +37,18 @@ public class TestSaddlePoints
 		int[] twoElements = new int[] { 1, 3 };
 		assertArrayEquals(new int[] { 1 }, Saddle.indexesOf(3, twoElements));
 	}
+	
+	@Test 
+	void FindsElementWithValueThree_WhenTwoThreesExist()
+	{
+		int[] twoThrees = new int[] { 3, 3 };
+		assertArrayEquals(new int[] { 0, 1 }, Saddle.indexesOf(3, twoThrees));
+	}
+	
+	@Test
+	void FindsMinimumValueinArray() 
+	{
+		int[] array = new int[] { 2, 3 };
+		assertEquals(2 , Saddle.min(array));
+	}
 }
