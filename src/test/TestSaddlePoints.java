@@ -23,4 +23,10 @@ public class TestSaddlePoints
 		int[] twoElements = new int[] {2,3};
 		assertEquals(3, Saddle.max(twoElements));
 	}
+	
+	@Test
+	void FindsElementWithValue() {
+		int[] three = new int[] {3};
+		assertEquals(0, Saddle.indexOf(3));
+	}
 }
