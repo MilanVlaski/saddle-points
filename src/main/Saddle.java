@@ -51,4 +51,8 @@ public class Saddle
 		return value;
 	}
 
+	public static int[] maxElementsInArray(int[] array) {
+	    return null;
+	}
+
 }
