@@ -6,7 +6,7 @@ import java.util.function.BiFunction;
 public class Saddle
 {
 
-	public static int[] indexesOf(int value, int[] array)
+	public static int[] indexesOfValueInAnArray(int value, int[] array)
 	{
 		var indexes = new ArrayList<Integer>(array.length);
 
@@ -38,7 +38,7 @@ public class Saddle
 		return valueFromCondition(array, Math::min);
 	}
 
-	public static int valueFromCondition(int[] array,
+	private static int valueFromCondition(int[] array,
 	                                     BiFunction<Integer, Integer, Integer> func)
 	{
 		int value = array[0];
@@ -52,7 +52,11 @@ public class Saddle
 	}
 
 	public static int[] maxElementsInArray(int[] array) {
-	    return null;
+		return indexesOfValueInAnArray(max(array), array);
+	}
+
+	public static int[] minElementsInArray(int[] array) {
+		return indexesOfValueInAnArray(min(array), array); 
 	}
 
 }

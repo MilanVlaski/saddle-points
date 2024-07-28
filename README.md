@@ -5,9 +5,9 @@ There may be more than one saddle point in the array. Print out the coordinates 
 #TODO
 - [ ] Print saddle points ([1, 1]), or "no saddle points"
 - [ ] Return an array of Saddle points
-- [ ] Find max elements in each array (row)
+- [X] Find max elements in each array (row)
 	- [X] Find max value in array
 	- [X] Then, find indexes of all elements with that value
-- [ ] Evaluate whether the elements have the minimum value in their respective columns
-	- [ ] Find min value in array
-	- [ ] Then, find index of all elements with that value
+- [X] Evaluate whether the elements have the minimum value in their respective columns
+	- [X] Find min value in array
+	- [X] Then, find index of all elements with that value
