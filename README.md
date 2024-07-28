@@ -5,6 +5,7 @@ There may be more than one saddle point in the array. Print out the coordinates 
 #TODO
 - [ ] Print saddle points ([1, 1]), or "no saddle points"
 - [ ] Return an array of Saddle points
+- [ ] Change code to use arrayOf and matrixOf methods everywhere
 - [X] Find max elements in each array (row)
 	- [X] Find max value in array
 	- [X] Then, find indexes of all elements with that value

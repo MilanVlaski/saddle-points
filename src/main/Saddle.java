@@ -3,69 +3,86 @@ package main;
 import java.util.ArrayList;
 import java.util.function.BiFunction;
 
-public class Saddle
-{
+public class Saddle {
 
-	public Saddle(int[][] matrix) {
-		// TODO Auto-generated constructor stub
+    private int[][] matrix;
+
+    public Saddle(int[][] matrix) {
+	this.matrix = matrix;
+    }
+
+    public static int[] indexesOfValueInAnArray(int value, int[] array) {
+	var indexes = new ArrayList<Integer>(array.length);
+
+	for (int i = 0; i < array.length; i++) {
+	    if (array[i] == value) {
+		indexes.add(i);
+	    }
 	}
 
-	public static int[] indexesOfValueInAnArray(int value, int[] array)
-	{
-		var indexes = new ArrayList<Integer>(array.length);
+	int[] result = new int[indexes.size()];
 
-		for (int i = 0; i < array.length; i++)
-		{
-			if (array[i] == value)
-			{
-				indexes.add(i);
-			}
-		}
-
-		int[] result = new int[indexes.size()];
-
-		for (int i = 0; i < indexes.size(); i++)
-		{
-			result[i] = indexes.get(i);
-		}
-
-		return result;
+	for (int i = 0; i < indexes.size(); i++) {
+	    result[i] = indexes.get(i);
 	}
 
-	public static int max(int[] array)
-	{
-		return valueFromCondition(array, Math::max);
+	return result;
+    }
+
+    public static int max(int[] array) {
+	return valueFromCondition(array, Math::max);
+    }
+
+    public static int min(int[] array) {
+	return valueFromCondition(array, Math::min);
+    }
+
+    private static int valueFromCondition(int[] array,
+					  BiFunction<Integer, Integer, Integer> func) {
+	int value = array[0];
+
+	for (int number : array) {
+	    value = func.apply(value, number);
 	}
 
-	public static int min(int[] array)
-	{
-		return valueFromCondition(array, Math::min);
+	return value;
+    }
+
+    public static int[] maxElementsIn(int[] array) {
+	return indexesOfValueInAnArray(max(array), array);
+    }
+
+    public static int[] minElementsInArray(int[] array) {
+	return indexesOfValueInAnArray(min(array), array);
+    }
+
+    public int[][] points() {
+	int[] firstRow = matrix[0];
+	int firstMaxCandidateColumnNumber = maxElementsIn(firstRow)[0];
+	int maxValueInFirstRow = max(matrix[0]);
+	if (existsSmallerElementThanXInColumn(maxValueInFirstRow,
+					      firstMaxCandidateColumnNumber)) {
+	    return matrixOf();
+	} else {
+	    return matrixOf(arrayOf(0, firstMaxCandidateColumnNumber)); 
 	}
+    }
 
-	private static int valueFromCondition(int[] array,
-	                                     BiFunction<Integer, Integer, Integer> func)
-	{
-		int value = array[0];
-
-		for (int number : array)
-		{
-			value = func.apply(value, number);
-		}
-
-		return value;
+    private boolean existsSmallerElementThanXInColumn(int value, int columnNumber) {
+	for (int i = 0; i < matrix.length; i++) {
+	    if (matrix[columnNumber][i] < value) {
+		return true;
+	    }
 	}
-
-	public static int[] maxElementsInArray(int[] array) {
-		return indexesOfValueInAnArray(max(array), array);
-	}
-
-	public static int[] minElementsInArray(int[] array) {
-		return indexesOfValueInAnArray(min(array), array); 
-	}
-
-	public int[] points() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	return false;
+    }
+    
+    public static int[] arrayOf(int... elements) {
+	return elements;
+    }
+    
+    public static int[][] matrixOf(int[]... arrays) {
+	return arrays;
+    }
 
 }
