@@ -56,9 +56,18 @@ public class TestSaddlePoints {
 		int[] array = arrayOf(2, 3, 2, 1, 1);
 		assertArrayEquals(arrayOf(3, 4), Saddle.minElementsInArray(array));
 	}
-	
-	
-	
+
+	@Test
+	void DoesNotIdentifyFirstRowMaxCandidateAsSaddlePoint() {
+		int[][] matrix = {
+				//@formatter:off
+				{ 0,  1, 9},
+				{-2, -2, 3},
+				{-2, -2, 4}};
+		//formatter:on
+		
+		assertArrayEquals(arrayOf(arrayOf()), new Saddle(matrix).points());
+	}
 	
 	
 

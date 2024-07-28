@@ -6,6 +6,10 @@ import java.util.function.BiFunction;
 public class Saddle
 {
 
+	public Saddle(int[][] matrix) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public static int[] indexesOfValueInAnArray(int value, int[] array)
 	{
 		var indexes = new ArrayList<Integer>(array.length);
@@ -57,6 +61,11 @@ public class Saddle
 
 	public static int[] minElementsInArray(int[] array) {
 		return indexesOfValueInAnArray(min(array), array); 
+	}
+
+	public int[] points() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
